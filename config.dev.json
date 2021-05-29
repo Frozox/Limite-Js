@@ -1,0 +1,5 @@
+{
+    "BOT_TOKEN": "",
+    "BOT_DEFAULT_PREFIX": "l!",
+    "API_URL": "https://localhost:8080"
+}
