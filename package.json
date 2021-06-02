@@ -1,6 +1,6 @@
 {
   "name": "limite-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,7 @@
   "author": "Frozox#4545",
   "license": "ISC",
   "dependencies": {
+    "dateformat": "^4.5.1",
     "discord.js": "^12.5.3",
     "node-fetch": "^2.6.1"
   }
