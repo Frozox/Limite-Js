@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
     const apiInfo = await fetch(client.config.API_URL)
         .then(res => res.json())
         .catch(() => {
-            message.channel.send(MESSAGES.commands.api.fetchError);
+            message.channel.send(MESSAGES.api.fetchErrorClient);
         });
 
     if (apiInfo) {

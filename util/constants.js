@@ -14,7 +14,6 @@ exports.MESSAGES = {
                 permissions: false,
                 args: false
             },
-            fetchError: 'Une erreur est survenue veuillez réessayer plus tard',
             embed: {
                 desc: 'Informations de l\'API',
                 author: 'Auteur',
@@ -58,11 +57,21 @@ exports.MESSAGES = {
     },
     events: {
         ready: {
-            name: 'ready',
-            fetchError: 'L\'API n\'est pas joignable.'
+            name: 'ready'
         },
         message: {
             name: 'message'
+        },
+        guildCreate: {
+            name: 'guildCreate'
+        },
+        guildDelete: {
+            name: 'guildDelete'
         }
+    },
+    api: {
+        name: 'Limite-API',
+        fetchErrorServer: `Limite-API is unreachable.`,
+        fetchErrorClient: 'Une erreur est survenue, veuillez réessayer plus tard.'
     }
 }
