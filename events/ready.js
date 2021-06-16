@@ -9,6 +9,7 @@ module.exports.run = async (client) => {
     console.log(`${COLORS.Bright}${COLORS.FgCyan}${client.user.tag} is started !${COLORS.Reset}`);
     console.log(`Updating guilds API...`);
 
+    //Deux requêtes pour purger et ajouter à l'API les données non prises en comptes l'hors de la mise hors ligne du bot
     //Ajouter les serveurs manquant dans l'API
     await fetch(`${client.config.API_URL}/serveur/createifnotexists`, {
         method: 'POST',
@@ -32,6 +33,18 @@ module.exports.run = async (client) => {
         .catch(() => {
             console.log(`${COLORS.Bright}${COLORS.FgRed}${MESSAGES.api.fetchErrorServer}${COLORS.Reset}`);
         });
+
+    //Récupérer les préfix de chaque serveurs
+    var guildsPrefix = await fetch(`${client.config.API_URL}/serveur/getallprefix`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    })
+        .then(res => res.json())
+        .catch(() => {
+            console.log(`${COLORS.Bright}${COLORS.FgRed}${MESSAGES.api.fetchErrorServer}${COLORS.Reset}`);
+        });
+
+    if (guildsPrefix) { client.prefix = guildsPrefix; }
     console.log(`${COLORS.FgYellow}-----------------${COLORS.Reset}`);
 }
 

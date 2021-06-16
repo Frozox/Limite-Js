@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 const fetch = require('node-fetch');
 const { MESSAGES } = require('../../util/constants');
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, _, message) => {
     const apiInfo = await fetch(client.config.API_URL)
         .then(res => res.json())
         .catch(() => {

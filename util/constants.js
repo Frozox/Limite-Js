@@ -7,11 +7,9 @@ exports.MESSAGES = {
                 name: 'api',
                 aliases: ['api'],
                 category: 'info',
-                description: 'Affiché les informations de l\'API',
+                desc: '_**%sapi** : Affiche les informations de l\'API._',
                 cooldown: 3,
-                usage: '',
                 isUserAdmin: false,
-                permissions: false,
                 args: false
             },
             embed: {
@@ -22,16 +20,28 @@ exports.MESSAGES = {
                 uptime: 'Uptime'
             }
         },
+        help: {
+            infos: {
+                name: 'help',
+                aliases: ['help', 'h'],
+                category: 'info',
+                desc: '_**%shelp** : Affiche la liste complète des commandes du bot.\n**%shelp <commandName>** : Affiche la description d\'une commande.\n\nAlias: **%sh**\n\nexemple:_\`\`\`%shelp api\`\`\`',
+                cooldown: 3,
+                isUserAdmin: false,
+                args: true
+            },
+            embed: {
+                desc: '_**%shelp** : Affiche la liste complète des commandes du bot.\n**%shelp <commandName>** : Affiche la description d\'une commande.\n\nAlias: **%sh**\n\nexemple:_\`\`\`%shelp api\`\`\`\n_Liste des commandes:_'
+            }
+        },
         infos: {
             infos: {
                 name: 'infos',
                 aliases: ['infos', 'info'],
                 category: 'info',
-                description: 'Affiché les informations du Bot',
+                desc: '_**%sinfos** : Affiche les informations du Bot.\n\nAlias: **%sinfo**_',
                 cooldown: 3,
-                usage: '',
                 isUserAdmin: false,
-                permissions: false,
                 args: false
             },
             embed: {
@@ -46,7 +56,7 @@ exports.MESSAGES = {
                 },
                 library: {
                     field: 'Library',
-                    value: 'Node.js'
+                    value: 'Discord.js'
                 },
                 uptime: {
                     field: 'Uptime',
@@ -74,4 +84,15 @@ exports.MESSAGES = {
         fetchErrorServer: `Limite-API is unreachable.`,
         fetchErrorClient: 'Une erreur est survenue, veuillez réessayer plus tard.'
     }
+}
+
+exports.parse = function parse(str) {
+    var args = [].slice.call(arguments, 1),
+        i = 0;
+
+    return str.replace(/%s/g, () => args[i++]);
+}
+
+exports.prefixParse = function prefixParse(str, prefix) {
+    return str.replace(/%s/g, () => prefix);
 }

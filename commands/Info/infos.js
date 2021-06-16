@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 const { MESSAGES } = require('../../util/constants');
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, _, message) => {
     const embed = new MessageEmbed()
         .setAuthor(client.user.username, client.user.avatarURL())
         .setDescription(MESSAGES.commands.infos.embed.desc)
