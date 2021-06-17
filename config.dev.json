@@ -1,5 +1,11 @@
 {
     "BOT_TOKEN": "",
     "BOT_DEFAULT_PREFIX": "l!",
+    "BOT_DECK_MIN": 7,
+    "BOT_DECK_MAX": 10,
+    "BOT_ROUNDS_WIN_MIN": 5,
+    "BOT_ROUNDS_WIN_MAX": 10,
+    "BOT_PLAYERS_MIN": 3,
+    "BOT_PLAYERS_MAX": 8,
     "API_URL": "http://localhost:8080"
 }

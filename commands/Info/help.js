@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
-const { MESSAGES, prefixParse } = require('../../util/constants');
+const { MESSAGES } = require('../../util/constants');
+const { prefixParse } = require('../../util/tools');
 
 module.exports.run = async (client, prefix, message, args) => {
     const category = client.commands.map(x => x.infos.category).filter((val, index, self) => self.indexOf(val) === index).sort();
